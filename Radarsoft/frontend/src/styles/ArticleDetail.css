@@ -1,0 +1,110 @@
+.article-detail {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.article-header {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.article-detail h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.article-meta .author {
+    font-weight: 500;
+    color: #495057;
+}
+
+.article-meta .date {
+    display: flex;
+    align-items: center;
+}
+
+.article-meta .badge {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.65rem;
+}
+
+.article-description {
+    margin-bottom: 2rem;
+}
+
+.article-description .lead {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #495057;
+    line-height: 1.6;
+}
+
+.article-content {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: #212529;
+    font-size: 1.05rem;
+}
+
+.article-content p {
+    margin-bottom: 1rem;
+}
+
+.article-actions {
+    display: flex;
+    gap: 0.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #dee2e6;
+}
+
+.article-actions .btn {
+    font-weight: 500;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.article-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .article-detail {
+        padding: 1.5rem;
+    }
+
+    .article-detail h1 {
+        font-size: 1.75rem;
+    }
+
+    .article-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .article-actions {
+        flex-wrap: wrap;
+    }
+
+    .article-actions .btn {
+        flex: 1 1 auto;
+        min-width: 120px;
+    }
+}
