@@ -6,8 +6,20 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
+// Configure CORS with a whitelist (supports multiple origins via CLIENT_URLS)
+const rawClientUrls = process.env.CLIENT_URLS || process.env.CLIENT_URL || 'http://localhost:3000'
+const allowedOrigins = rawClientUrls.split(',').map(s => s.trim())
+
 app.use(cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:3000',
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl)
+        if (!origin) return callback(null, true)
+        if (allowedOrigins.indexOf(origin) !== -1) {
+            return callback(null, true)
+        }
+        // Not allowed by CORS
+        return callback(new Error('CORS: Origin not allowed'))
+    },
     credentials: true
 }));
 app.use(express.json());
