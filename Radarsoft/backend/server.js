@@ -9,7 +9,21 @@ const app = express();
 // Allow all origins (development / quick debug).
 // WARNING: This is insecure for production — it opens the API to requests from any origin.
 // It also prevents use of Access-Control-Allow-Credentials together with '*'.
-app.use(cors());
+const allowedOrigins = [
+    'https://radarsoft-blogapp.vercel.app', // your frontend on Vercel
+    'http://localhost:5173' // (optional) local dev
+];
+
+app.use(cors({
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true
+}));
 app.use(express.json());
 
 // MongoDB Connection
